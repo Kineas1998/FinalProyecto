@@ -42,6 +42,14 @@ function MainLayout() {
         setColorGrid([...newM]);
     }
 
+    function onFill() {
+        let newM = [...colorGrid];
+        for(let i=0; i<10; i++)
+            for(let j=0; j<10; j++)
+                newM[i][j]= colorChosen;
+        setColorGrid([...newM]);
+    }
+
     //Función para la captura del componente del tablero
     
     function onPrint(){
@@ -59,26 +67,33 @@ function MainLayout() {
     
 
     return (
-        <div className="mainPage">  
+        <div>  
             <div className="flex flex-col p-4">
-                <div className="flex flex-row w-full mb-4 justify-around">
-                    <div className="w-1/4">
+                <div className="flex flex-wrap flex-row w-full mb-4 justify-around">
+                    <div className="lg:w-1/4">
                         <button
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-1"
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 sm:px-4 rounded-full mx-1"
                             type="button"
                             onClick={onReset}
                         >
                             New game 
                         </button>
                         <button
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 sm:px-4 rounded-full mx-1"
                             type="button"
                             onClick={onPrint}
                         >
                             Print
                         </button>
+                        <button
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 sm:px-4 rounded-full mx-1"
+                            type="button"
+                            onClick={onFill}
+                        >
+                            Fill them all!
+                        </button>
                     </div>
-                    <div className="w-3/4">
+                    <div className="lg:w-3/4">
                         <ColorPalette
                             mainColour={colorChosen}
                             onChange={setColor} 
@@ -86,7 +101,7 @@ function MainLayout() {
                     </div>
                 </div>
                 <div className="flex flex-wrap justify-around">
-                    <div ref={capture} id="pintable" className="bg-gray-200 border border-black flex flex-col  items-center">
+                    <div ref={capture} id="pintable" className="bg-gray-200 border border-black flex flex-col  items-center flex-wrap mb-8">
                         <img className="h-64 w-auto" src={PerritoJack} alt="Logo" />
                         <p className ='my-5'>There's no image to print. Draw something</p>
                         <button

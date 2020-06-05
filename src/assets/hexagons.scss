@@ -89,13 +89,13 @@ $block: '.hex-grid';
 @media screen and (min-width: 840px) and (max-width: 1119px) {
 	#{$block} {
 		&__list {
-            --amount: 3;
+            --amount: 5;
 			--counter: 1;
 			grid-gap: 1.5rem 3rem;
 		}
 
 		&__item {
-			@include grid-item(3);
+			@include grid-item(5);
 		}
 	}
 }
@@ -103,13 +103,13 @@ $block: '.hex-grid';
 @media screen and (min-width: 480px) and (max-width: 839px) {
 	#{$block} {
 		&__list {
-			--amount: 2;
+			--amount: 5;
 			--counter: 1;
 			grid-gap: 1.5rem 3rem;
 		}
 
 		&__item {
-			@include grid-item(2);
+			@include grid-item(5);
 		}
 	}
 }
@@ -117,8 +117,13 @@ $block: '.hex-grid';
 @media screen and (max-width: 479px) {
 	#{$block} {
 		&__list {
-            --amount: 1;
+			--amount: 3;
+			--counter: 1;
 			grid-gap: 1.5rem 3rem;
+		}
+
+		&__item {
+			@include grid-item(3);
 		}
 	}
 }

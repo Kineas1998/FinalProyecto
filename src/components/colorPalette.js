@@ -23,7 +23,7 @@ function ColorPalette(props) {
     //Petición a la Hexbot API
     function getColors() {
         setStatus('loading');
-        fetch('http://api.noopschallenge.com/hexbot?count=10').then(
+        fetch('https://api.noopschallenge.com/hexbot?count=10').then(
             (response) => {
                 if(!response.ok) {
                     throw new Error(`Newtwork response not ok, status code: ${response.status}`)
@@ -61,7 +61,7 @@ function ColorPalette(props) {
 
     return (
         <div className="h-full">
-            <div className="flex items-center flex-wrap md:flex-no-wrap">
+            <div className="flex items-center flex-wrap lg:flex-no-wrap">
                 <div className="flex flex-col justify-between items-center py-4 mx-4 md:w-1/4 w-full">
                     <p>Choose your colors to begin with:</p>
                     <button className="mt-4 flex items-center shadow bg-gray-800 hover:bg-gray-600 focus:shadow-outline focus:outline-none text-white text-xl py-3 px-10 rounded"
@@ -71,7 +71,7 @@ function ColorPalette(props) {
                         {buttonDisplay()}
                     </button>
                 </div>
-                <div className="md:w-3/4">
+                <div className="w-full md:w-3/4">
                     <ul className="hex-grid__list palette">
                         {colours.map(colour => {
                             const isSelected = colour === mainColour;
